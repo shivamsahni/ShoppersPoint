@@ -12,6 +12,13 @@ import {TabViewModule} from 'primeng/tabview';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {DataViewModule} from 'primeng/dataview';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {BadgeModule} from 'primeng/badge';
+import {TooltipModule} from 'primeng/tooltip';
+import {CarouselModule as Carouselng} from 'primeng/carousel';
+
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './header/nav/nav.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +29,10 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { CartComponent } from './order/cart/cart.component';
 import { CheckoutComponent } from './order/checkout/checkout.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
+import { CartItemComponent } from './order/cart/cart-item/cart-item.component';
+
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -35,7 +46,9 @@ import { ToastrModule } from 'ngx-toastr';
     ProductListComponent,
     ProductDetailComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductItemComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +61,13 @@ import { ToastrModule } from 'ngx-toastr';
     ButtonModule,
     InputTextModule,
     DataViewModule,
+    InputNumberModule,
+    DropdownModule,
+    InputTextareaModule,
+    BadgeModule,
+    Carouselng,
+    TooltipModule,
+    [CarouselModule.forRoot()],
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })    

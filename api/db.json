@@ -115,7 +115,7 @@
             "description": "2 minute tasty maggi noodles",
             "price": "12",
             "quantity": "100",
-            "category": "pasta and noddles",
+            "category": "pasta and noodles",
             "imageURL": "../../../assets/components/images/productimages/magginoddle.jfif"
         },        
         {
@@ -142,7 +142,7 @@
             "description": "Nokia durable keypad mobile phone",
             "price": "2200",
             "quantity": "100",
-            "category": "keypadmobile",
+            "category": "keypad mobile",
             "imageURL": "../../../assets/components/images/productimages/nokiakeypadmobile.jfif"
         },        
         {
@@ -160,7 +160,7 @@
             "description": "Penny Penny Italian Pasta",
             "price": "40",
             "quantity": "100",
-            "category": "pasta and noddles",
+            "category": "pasta and noodles",
             "imageURL": "../../../assets/components/images/productimages/pasta.jfif"
         },        
         {
@@ -169,7 +169,7 @@
             "description": "Brand new Philips mixer grinder",
             "price": "4000",
             "quantity": "100",
-            "category": "mixer",
+            "category": "mixer grinder",
             "imageURL": "../../../assets/components/images/productimages/philipsmixergrinder.jfif"
         },        
         {
@@ -187,7 +187,7 @@
             "description": "Samsung punch hole camera s20",
             "price": "80000",
             "quantity": "100",
-            "category": "touchmobile",
+            "category": "touch mobile",
             "imageURL": "../../../assets/components/images/productimages/samsungmobile.jfif"
         },        
         {

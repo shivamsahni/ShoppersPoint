@@ -16,20 +16,16 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   login(model: any){
-    console.log(model);
     let url="";
     url = "/api/users?username=";
     url+=model.username?.toLowerCase();
     url+="&password=";
     url+=model.password;
-    console.log(url);
 
     return this.http.get(url)
         .pipe(map((response: any)=>{
         const user = response?.[0];
         if(user){
-          console.log('yes user exists...');
-          console.log(user);
           localStorage.setItem('user', user.username);
           let cuser :User= {'username': user.username};
           this.currentUserSource.next(cuser);
@@ -46,6 +42,18 @@ export class AccountService {
   logout(){
     localStorage.removeItem('user');
     this.currentUserSource.next(undefined);
+  }
+
+  isLoggedIn():boolean{
+    let result = false;
+    this.currentUser$.subscribe((u:User)=>{
+      if(u!==undefined){
+        if(u.username!==undefined)
+          result = true;
+      }
+    })
+
+    return result;
   }
 
 }

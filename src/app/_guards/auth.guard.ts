@@ -18,8 +18,6 @@ export class AuthGuard implements CanActivate {
     return this.accountService.currentUser$.pipe(
       map(
         (u: any) => {
-          console.log('inside authguard...')
-          console.log(u);
           if (u?.username === undefined) {
             this.toastr.error("Kindly Login first...");
             return false;

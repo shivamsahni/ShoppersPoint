@@ -37,30 +37,14 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.accountService.login(this.model).subscribe((response:any)=>{
-        console.log('inside response');
         if(response){
-          console.log("no error, login successfull")
-          console.log(response);
           this.toastr.success('Login Successfull')
           this.router.navigateByUrl('/');
         }
         else{
-          console.log('error: wrong username or password');
           this.toastr.error('Incorrect Username or Password');
         }
-    }
-
-      // this.currentUser$?.subscribe((u:User)=>{
-      //   console.log(u);
-      //   if(u.username!==undefined){
-      //     console.log("login successfull");
-      //   }
-      //   else{
-      //     console.log('username or password incorrect');
-      //   }
-      // })
-
-    );
+    });
   }
   }
 

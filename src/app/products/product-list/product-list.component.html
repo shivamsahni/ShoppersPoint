@@ -1,83 +1,14 @@
-<p>Product list works</p>
-<div class="card">
-    <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
-        layout="grid">
-        <ng-template let-product pTemplate="gridItem">
-            <div class="p-col-12 p-md-4">
-                <div class="product-grid-item card">
-                    <div class="product-grid-item-top">
-                        <div>
-                            <i class="pi pi-tag product-category-icon"></i>
-                            <span class="product-category">{{product.category}}</span>
-                        </div>
-                    </div>
-                    <div class="product-grid-item-content">
-                        <img [src]="product.imageURL" [alt]="product.name"/>
-                        <div class="product-name">{{product.name}}</div>
-                        <div class="product-description">{{product.description}}</div>
-                    </div>
-                    <div class="product-grid-item-bottom">
-                        <span class="product-price">{{product.price | currency:'INR'}}</span>
-                        <p-button icon="pi pi-shopping-cart"></p-button>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-dataView>
+<div class="container">
+    <ng-template [ngIf]="(productService.Products$ | async)?.length===0" [ngIfElse]="show">
+        <p>
+            No Product Found, try Searching with different Keyword...
+        </p>
+    </ng-template>
+    <ng-template #show>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let product of productService.Products$ | async">
+          <app-product-item [productItem]="product" ></app-product-item>
+        </div>
+    </div>
+    </ng-template>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <ng-template [ngIf]="productService.isProductsEmpty$ | async" [ngIfElse]="show">
-	<p>
-		No Search List Available
-	</p>
-</ng-template>
-
-<ng-template #show>
-	<div class="mt-4 mb-4" *ngIf="productService.Products$ | async as selectedOptions">
-		<header *ngIf="selectedOptions.length > 0">
-			<h3>Search Result list</h3>
-		</header>
-		<div class="card" *ngFor="let item of selectedOptions">
-			<div class="row" *ngIf="selectedOptions.length > 0">
-				<div>
-					<div class=" col-3 p-4">
-						<img src="{{item.imageURL}}" class="rounded selected-image" alt="Selected Image">
-					</div>
-					<div class="col-9 p-4">
-						<h5>{{item.name}}</h5>
-						<p>{{item.description}}</p>
-						<p>
-							<span>Price: {{item.price}} </span>
-							<span>Quantity: {{item.quantity}} </span>
-
-						</p>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-</ng-template> -->

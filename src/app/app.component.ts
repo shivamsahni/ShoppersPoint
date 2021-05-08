@@ -21,8 +21,6 @@ export class AppComponent {
 
   setCurrentUser(){
     const user: any = {'username':localStorage.getItem('user')?.toString()};
-    console.log('logging user from local storage in app component')
-    console.log(user);
     this.accountService.setCurrentUser(user);
   }
 

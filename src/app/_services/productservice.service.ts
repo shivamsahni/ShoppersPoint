@@ -15,13 +15,13 @@ export class ProductserviceService {
   constructor(private http: HttpClient) {}
 
   private selectedProduct = new BehaviorSubject<Product>({
-    id: undefined,
-    name: undefined,
-    description: undefined,
-    price: undefined,
-    imageURL: undefined,
-    quantity: undefined,
-    category: undefined
+    id: "",
+    name: "",
+    description: "",
+    price: 0,
+    imageURL: "",
+    quantity: 0,
+    category: ""
   });
 
   private selectedProducts = new BehaviorSubject<Product[]>([]);
@@ -39,6 +39,24 @@ export class ProductserviceService {
     );
   }
 
+  search2(q: string){
+    this.Products$ =  this.http.get<Product[]>(
+      this.SERVER_URL + 'products?name_like=' + q
+    );
+  }  
+
+  searchByCategory(category: string):Observable<Product[]>{
+    return this.http.get<Product[]>(
+      this.SERVER_URL+'products?category_like=' + category
+    )
+  }
+
+  searchByCategory2(category: string){
+    this.Products$ =  this.http.get<Product[]>(
+      this.SERVER_URL+'products?category_like=' + category
+    )
+  }
+
   updateSelectedProduct(product: Product) {
     this.selectedProduct.next(product);
   }
@@ -46,4 +64,15 @@ export class ProductserviceService {
   updateSelectedProducts(products: Product[]) {
     this.selectedProducts.next(products);
   }
+
+  getProductById(id: string){
+    return this.http.get<Product>(
+      this.SERVER_URL + 'products/' + id
+    )
+  }
+
+
+
+
+
 }
