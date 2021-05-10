@@ -34,6 +34,16 @@ import { CartItemComponent } from './order/cart/cart-item/cart-item.component';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+// localization module import
+import { TranslateModule, TranslateLoader, TranslateService } from  '@ngx-translate/core';
+import { TranslateHttpLoader } from  '@ngx-translate/http-loader';
+import { HttpClient } from  '@angular/common/http';
+
+// loader module
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [
@@ -70,9 +80,17 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     [CarouselModule.forRoot()],
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide:  TranslateLoader,
+        useFactory:  HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     })    
   ],
-  providers: [],
+  exports:[TranslateModule],
+  providers: [TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

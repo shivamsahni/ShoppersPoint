@@ -6,6 +6,7 @@ import { AccountService } from '../_services/account.service';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, 
               private accountService: AccountService,
               private toastr: ToastrService,
-              private router: Router) { }
+              private router: Router,
+              public translate: TranslateService) { }
 
   ngOnInit(): void {
     this.currentUser$ = this.accountService.currentUser$;
@@ -28,21 +30,21 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.model?.username===undefined && this.model?.password===undefined)
-      this.toastr.error("Username & Password Required");
+      this.toastr.error(this.translate.instant('toastrmessages.usernamepasswordrequired'));
     else if(this.model?.username===undefined){
-      this.toastr.error("Username required");
+      this.toastr.error(this.translate.instant('toastrmessages.usernamerequired'));
     }
     else if(this.model?.password===undefined){
-      this.toastr.error("Password Required");
+      this.toastr.error(this.translate.instant('toastrmessages.passwordrequired'));
     }
     else{
       this.accountService.login(this.model).subscribe((response:any)=>{
         if(response){
-          this.toastr.success('Login Successfull')
+          this.toastr.success(this.translate.instant('toastrmessages.loginsuccess'))
           this.router.navigateByUrl('/');
         }
         else{
-          this.toastr.error('Incorrect Username or Password');
+          this.toastr.error(this.translate.instant('toastrmessages.incorrect'));
         }
     });
   }

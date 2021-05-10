@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/_services/cart.service';
 
@@ -23,7 +24,8 @@ export class CheckoutComponent implements OnInit {
 
   constructor(public cartService: CartService,
               private toastr: ToastrService,
-              public router: Router) { }
+              public router: Router,
+              private translate: TranslateService) { }
 
   ngOnInit(): void {
   }
@@ -43,7 +45,7 @@ export class CheckoutComponent implements OnInit {
       zip: undefined,
     };
 
-    this.toastr.success("Order Placed Successfully, Continue Shopping...");
+    this.toastr.success(this.translate.instant('toastrmessages.orderplaced'));
 
     this.cartService.resetCart();
 

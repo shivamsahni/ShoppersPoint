@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
         <form novalidate #checkout="ngForm">
-            <h5 class="text-center">Checkout</h5>
+            <h5 class="text-center">{{'checkoutpage.heading' | translate}}</h5>
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-12 p-md-6">
                     <span class="p-float-label">
@@ -17,10 +17,10 @@
                                 }" 
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="firstname">Firstname</label>
+                        <label for="firstname">{{'checkoutpage.firstname' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="firstnameVar.errors?.required">
-                                Firstname is required
+                                {{'checkoutpage.firstnameerror' | translate}}
                             </span>
                         </span>
                     </span>
@@ -40,17 +40,16 @@
                                 }"
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="lastname">Lastname</label>
+                        <label for="lastname">{{'checkoutpage.lastname' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="lastnameVar.errors?.required">
-                                Lastname is required
+                                {{'checkoutpage.lastnameerror' | translate}}
                             </span>
                         </span>
                     </span>
                     <br>
                 </div>
                 <div class="p-field p-col-12 p-md-6">
-    
                     <span class="p-float-label">
                         <input 
                                 id="Email" 
@@ -65,20 +64,19 @@
                                 }"
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="Email">Email</label>
+                        <label for="Email">{{'checkoutpage.email' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="emailVar.errors?.required">
-                                Email ID is required
+                                {{'checkoutpage.emailerror1' | translate}}
                             </span>
                             <span *ngIf="emailVar.errors?.pattern">
-                                Invalid Email ID
+                                {{'checkoutpage.emailerror2' | translate}}
                             </span>
                         </span>
                     </span>
     
                 </div>
                 <div class="p-field p-col-12 p-md-6">
-    
                     <span class="p-float-label">
                         <input 
                                 id="Phonenumber" 
@@ -93,13 +91,13 @@
                                 }"
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="Phonenumber">Phonenumber</label>
+                        <label for="Phonenumber">{{'checkoutpage.phonenumber' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="phonenumberVar.errors?.required">
-                                Phonenumber is required
+                                {{'checkoutpage.phonenumbererror1' | translate}}
                             </span>
                             <span *ngIf="phonenumberVar.errors?.pattern">
-                                Invalid Phonenumber
+                                {{'checkoutpage.phonenumbererror2' | translate}}
                             </span>
                         </span>
                     </span>
@@ -108,7 +106,7 @@
                 <!-- <textarea rows="5" cols="30" pinputtextarea="" class="p-inputtextarea p-inputtext p-component"></textarea> -->
     
                 <div class="p-field p-col-12 mylabel">
-                    <label for="address mylabel">Delivery Address</label>
+                    <label for="address mylabel">{{'checkoutpage.address' | translate}}</label>
                     <textarea 
                                 id="address" 
                                 type="text" 
@@ -125,11 +123,11 @@
                     </textarea>
                     <span class="invalid-feedback">
                         <span *ngIf="addressVar.errors?.required">
-                            Delivery address is required
+                            {{'checkoutpage.addresserror' | translate}}
                         </span>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-3 city">
+                <div class="p-field p-col-12 p-md-6">
                     <span class="p-float-label">
                         <input 
                                 id="city" 
@@ -143,15 +141,15 @@
                                 }"
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="city">City</label>
+                        <label for="city">{{'checkoutpage.city' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="cityVar.errors?.required">
-                                City is required
+                                {{'checkoutpage.cityerror' | translate}}
                             </span>
                         </span>
                     </span>
                 </div>
-                <div class="p-field p-col-12 p-md-3 zip">
+                <div class="p-field p-col-12 p-md-6 zip">
                     <span class="p-float-label">
                         <input 
                                 id="zip" 
@@ -165,15 +163,15 @@
                                 }"
                                 class="p-inputtext p-component" 
                                 pInputText>
-                        <label for="zip">Zip</label>
+                        <label for="zip">{{'checkoutpage.zip' | translate}}</label>
                         <span class="invalid-feedback">
                             <span *ngIf="zipVar.errors?.required">
-                                ZipCode is required
+                                {{'checkoutpage.ziperror' | translate}}
                             </span>
                         </span>
                     </span>
                 </div>
-                <div class="p-field p-col-4 p-offset-4 ">
+                <div class="p-field p-col-6 p-sm-2 p-offset-4 checkout-btn ">
                     <p-button    
                                 (onClick)="save(checkout)"
                                 id="checkout-btn" 
@@ -181,16 +179,15 @@
                                 [ngClass] = "{
                                     'is-invalid' : !checkout.valid
                                 }" 
-                                label="Checkout"
-                                icon="pi pi-check" 
-                                iconPos="left">
+                                label="{{'checkoutpage.button' | translate}}"
+                    >
                     </p-button>
                     <!-- <button id="checkout-btn" [disabled]="(cartService.cartItems$ | async)?.length==0" type="button" routerLink="/checkout" class="btn btn-primary btn-block">go to checkout</button>  -->
                     <!-- <button id="checkout-btn" [disabled]="(cartService.cartItems$ | async)?.length==0" type="button" routerLink="/checkout" class="btn btn-primary btn-block">go to checkout</button>  -->
                     <!-- <small [hidden]="(cartService.cartItems$ | async)?.length!=0" style="color: red;"
                         id="checkout-btn-help">Cart is Empty, Please add some products & try again...</small> -->
                     <small *ngIf="(cartService.cartItems$ | async)?.length==0" style="color: red; ">
-                        Cart is Empty!
+                        {{'checkoutpage.checkouterror' | translate}}
                     </small>
 
                     <!-- <span class="invalid-feedback">

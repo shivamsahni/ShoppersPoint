@@ -27,7 +27,7 @@
           <button [disabled]="!accountService.isLoggedIn()" pripple="" type="button" class="p-ripple p-button p-component">
             <span class="p-button-icon p-button-icon-left ng-star-inserted pi pi-shopping-cart"
               aria-hidden="true"></span>
-            <span (click)="handleAddToCart()" class="p-button-label ng-star-inserted" aria-hidden="false">Add To Cart</span>
+            <span (click)="handleAddToCart()" class="p-button-label ng-star-inserted" aria-hidden="false">{{'productlist.button' | translate}}</span>
           </button>
         </div>
       </div>

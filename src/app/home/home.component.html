@@ -1,46 +1,60 @@
 <div class="slider">
-    <carousel [isAnimated]="true">
-        <slide>
-          <img [routerLink]="['/products']" [queryParams]="{ category: 'topwear'}" src="../../assets/components/images/homepageimages/slider1.jpg" alt="first slide" style="display: block; width: 100%;">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Clothes Factory</h3>
-            <p>Search from a wide Range of Clothes for your closet</p>
-          </div>
-        </slide>
-        <slide>
-          <img [routerLink]="['/products']" [queryParams]="{ category: 'shoes'}" src="../../assets/components/images/homepageimages/slider2.jpg" alt="second slide" style="display: block; width: 100%;">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Shoes</h3>
-            <p>A Shoe for every occation</p>
-          </div>
-        </slide>
-        <slide>
-          <img [routerLink]="['/products']" [queryParams]="{ category: 'bottomwear'}" src="../../assets/components/images/homepageimages/slider3.jpg" alt="third slide" style="display: block; width: 100%;">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Denim Love</h3>
-            <p>Denim never gets out of style, grab one</p>
-          </div>
-        </slide>
-      </carousel>
-</div>
-<h3 style="text-align: center; padding-top: 2rem; padding-bottom: 1rem;">Most Bought Products</h3>
-<p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
-  <ng-template let-product pTemplate="item">
-      <div class="product-item">
-          <div class="product-item-content">
-              <div class="p-mb-3">
-                  <img (click)="goToProductDetailPage(product.id)" [src]="product.imageURL" [alt]="product.name" class="product-image" />
-              </div>
-              <div>
-                  <h4 class="p-mb-1">{{product.name}}</h4>
-                  <h6 class="p-mt-1 p-mb-3">{{product.price | currency:'INR'}} </h6>
-                  <div class="car-buttons p-mt-5">
-                      <p-button [disabled]="!accountService.isLoggedIn()" (click)="handleAddToCart(product.id)" type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-shopping-cart" pTooltip="Add to Cart" tooltipPosition="bottom"></p-button>
-                      <p-button (click)="goToProductDetailPage(product.id)" type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-send" pTooltip="Product details" tooltipPosition="bottom"></p-button>
-                      <p-button [routerLink]="['/products']" [queryParams]="{ category: product?.category}" type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-sitemap" pTooltip="Similar Products" tooltipPosition="bottom"></p-button>
-                  </div>
-              </div>
-          </div>
+  <carousel [isAnimated]="true">
+    <slide>
+      <img [routerLink]="['/products']" [queryParams]="{ category: 'bottomwear'}"
+        src="../../assets/components/images/homepageimages/slider3.jpg" alt="third slide"
+        style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>{{ 'homepage.slider1_heading' | translate}}</h3>
+        <p>{{ 'homepage.slider1_text' | translate}}</p>
       </div>
+    </slide>
+    <slide>
+      <img [routerLink]="['/products']" [queryParams]="{ category: 'shoes'}"
+        src="../../assets/components/images/homepageimages/slider2.jpg" alt="second slide"
+        style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>{{ 'homepage.slider2_heading' | translate}}</h3>
+        <p>{{ 'homepage.slider2_text' | translate}}</p>
+      </div>
+    </slide>
+    <slide>
+      <img [routerLink]="['/products']" [queryParams]="{ category: 'topwear'}"
+        src="../../assets/components/images/homepageimages/slider1.jpg" alt="first slide"
+        style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>{{ 'homepage.slider3_heading' | translate}}</h3>
+        <p>{{ 'homepage.slider3_text' | translate}}</p>
+      </div>
+    </slide>
+  </carousel>
+</div>
+<h3 style="text-align: center; padding-top: 2rem; padding-bottom: 1rem;">{{ 'homepage.heading' | translate}}</h3>
+<p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true"
+  [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+  <ng-template let-product pTemplate="item">
+    <div class="product-item">
+      <div class="product-item-content">
+        <div class="p-mb-3">
+          <img (click)="goToProductDetailPage(product.id)" [src]="product.imageURL" [alt]="product.name"
+            class="product-image" />
+        </div>
+        <div>
+          <h4 class="p-mb-1" id="productname" >{{product.name}}</h4>
+          <h6 class="p-mt-1 p-mb-3" id="productprice">{{product.price | currency:'INR'}} </h6>
+          <div class="car-buttons p-mt-5">
+            <p-button id="add2cart" [disabled]="!accountService.isLoggedIn()" (click)="handleAddToCart(product.id)" type="button"
+              styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-shopping-cart" pTooltip="{{ 'homepage.button_tooltip1' | translate}}"
+              tooltipPosition="bottom"></p-button>
+            <p-button (click)="goToProductDetailPage(product.id)" type="button"
+              styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-send" pTooltip="{{ 'homepage.button_tooltip2' | translate}}"
+              tooltipPosition="bottom"></p-button>
+            <p-button [routerLink]="['/products']" [queryParams]="{ category: product?.category}" type="button"
+              styleClass="p-button-help p-button-rounded" icon="pi pi-sitemap" pTooltip="{{ 'homepage.button_tooltip3' | translate}}"
+              tooltipPosition="bottom"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
   </ng-template>
 </p-carousel>

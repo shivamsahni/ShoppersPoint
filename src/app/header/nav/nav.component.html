@@ -1,5 +1,5 @@
-<p-menubar class="nav-bar" [model]="items">    
-    <ng-template pTemplate="start">
+<p-menubar class="nav-bar" [model]="items" [baseZIndex]=4>    
+    <ng-template id="nav-bar-data" pTemplate="start">
     <a routerLink="/">
         <img src="assets/components/images/online-shopping3.svg" height="40" class="p-mr-2">
     </a>
@@ -10,29 +10,19 @@
 
         <form #search = "ngForm" (ngSubmit)=(searchIt()) autocomplete="false">
 
-            <!-- <button routerLink="/cart" pbutton="" pripple="" type="button" icon="pi pi-shopping-cart" class="p-button-rounded p-button-info p-ripple p-button p-component p-button-icon-only">
-                <span class="p-button-icon pi pi-shopping-cart" aria-hidden="true"></span>
-                <span aria-hidden="true" class="p-button-label"></span>
-                <span class="p-ink" style="height: 42px; width: 42px; left: -4px; right: 4px"></span>
-            </button> -->
-            <!-- <p-button label="Cart" icon="pi pi-shopping-cart" styleClass="mystyleclass" badge="8" badgeClass="p-badge-danger"></p-button> -->
-            <i pbadge="" routerLink="/cart" severity="danger" class="pi pi-shopping-cart p-mr-4 p-text-secondary p-overlay-badge cart" style="font-size: 25px;">
-                <span *ngIf="(cartService.cartItems$ | async)?.length!==0" id="pr_id_3_badge" style="font-size: 10px;" class="p-badge p-component p-badge-danger">{{(cartService.cartItems$ | async)?.length}}</span>
+            <i pbadge="" routerLink="/cart" severity="danger" id="cartIcon" class="pi pi-shopping-cart p-mr-2 p-overlay-badge cart" style="font-size: 25px;" pTooltip="{{'header.carttooltip' | translate}}" tooltipPosition="bottom">
+                <span *ngIf="(cartService.cartItems$ | async)?.length!==0" id="cartBadge" style="font-size: 10px;" class="p-badge p-component p-badge-danger" >{{(cartService.cartItems$ | async)?.length}}</span>
             </i>
 
+            <input type="text" id="search-input" name="search" [(ngModel)]="searchProduct"  pInputText class="p-inputtext p-component ng-pristine ng-valid ng-touched" placeholder="{{'header.searchlabel' | translate}}">            
 
-            <input type="text" id="search-input" name="search" [(ngModel)]="searchProduct"  pInputText class="p-inputtext p-component ng-pristine ng-valid ng-touched" placeholder="Search">            
+            <i routerLink="/login" id="login" [hidden]="accountService.isLoggedIn()" severity="danger" class="pi pi-user-plus p-mr-4 p-text-secondary" style="font-size: 25px;" pTooltip="{{'header.logintooltip' | translate}}"
+            tooltipPosition="bottom">
+            </i>
 
-            <button routerLink="/login" pripple="" type="button" class="p-ripple p-button p-component" [hidden]="loggedIn"><!---->
-                <span class="p-button-icon p-button-icon-left ng-star-inserted pi pi-user-plus" aria-hidden="true"></span><!---->
-                <span class="p-button-label ng-star-inserted" aria-hidden="false">Login</span><!----><!---->
-                <!-- <span class="p-ink" style="height: 93px; width: 93px; top: -31.2749px; left: 14.5px;"></span> -->
-            </button>
-            <button routerLink="/" pripple="" type="button" class="p-ripple p-button p-component" (click)="logout()" [hidden]="!loggedIn"><!---->
-                <span class="p-button-icon p-button-icon-left ng-star-inserted pi pi-user-minus" aria-hidden="true"></span><!---->
-                <span class="p-button-label ng-star-inserted" aria-hidden="false">Logout</span><!----><!---->
-                <!-- <span class="p-ink" style="height: 93px; width: 93px; top: -31.2749px; left: 14.5px;"></span> -->
-            </button>
+            <i routerLink="/" id="logout" (click)="logout()" [hidden]="!accountService.isLoggedIn()" severity="danger" class="pi pi-user-minus p-mr-4 p-text-secondary" style="font-size: 25px;" pTooltip="{{'header.logouttooltip' | translate}}"
+            tooltipPosition="bottom">
+            </i>            
             
         </form>
     </ng-template>

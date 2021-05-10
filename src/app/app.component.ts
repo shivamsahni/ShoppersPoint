@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
+import { TranslateService } from  '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,9 @@ import { AccountService } from './_services/account.service';
 export class AppComponent {
   title = 'ShoppersPoint';
 
-  constructor(private http: HttpClient, private accountService: AccountService){
-
+  constructor(private http: HttpClient, private accountService: AccountService,public translate:  TranslateService){
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit(){

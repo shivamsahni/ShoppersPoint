@@ -1,7 +1,7 @@
 <div class="container">
     <ng-template [ngIf]="(productService.Products$ | async)?.length===0" [ngIfElse]="show">
         <p>
-            No Product Found, try Searching with different Keyword...
+            {{'productlist.noproductfound' | translate}}...
         </p>
     </ng-template>
     <ng-template #show>
