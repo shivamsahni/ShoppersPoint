@@ -38,6 +38,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TranslateModule, TranslateLoader, TranslateService } from  '@ngx-translate/core';
 import { TranslateHttpLoader } from  '@ngx-translate/http-loader';
 import { HttpClient } from  '@angular/common/http';
+import { NotfoundComponent } from './home/notfound/notfound.component';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
     CartComponent,
     CheckoutComponent,
     ProductItemComponent,
-    CartItemComponent
+    CartItemComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

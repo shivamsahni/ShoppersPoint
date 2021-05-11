@@ -41,14 +41,17 @@ export class AccountService {
 
   logout(){
     localStorage.removeItem('user');
-    this.currentUserSource.next(undefined);
+    let dummy: User = {
+      'username': ""
+    }
+    this.currentUserSource.next(dummy);
   }
 
   isLoggedIn():boolean{
     let result = false;
     this.currentUser$.subscribe((u:User)=>{
       if(u!==undefined){
-        if(u.username!==undefined)
+        if(u.username!=="")
           result = true;
       }
     })

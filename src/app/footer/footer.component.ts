@@ -9,8 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class FooterComponent implements OnInit {
 
-  members: Observable<any> = this.http.get('/api/users');
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {

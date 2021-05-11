@@ -37,7 +37,7 @@
                 </div>
                 <hr>
                 <br>
-                <button id="addtocart" (click)="addToCart()" [disabled]="!accountService.isLoggedIn()" type="button" class="btn btn-primary btn-md mr-1 mb-2">{{'productdetailpage.button' | translate}}</button>
+                <button id="addtocart" (click)="addToCart()" [disabled]='(accountService.currentUser$ | async)?.username==""' type="button" class="btn btn-primary btn-md mr-1 mb-2">{{'productdetailpage.button' | translate}}</button>
                 <br>
                 <small [hidden]="accountService.isLoggedIn()" id="addtocart-help">Login for Add to Cart</small>
             </div>

@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
     return this.accountService.currentUser$.pipe(
       map(
         (u: any) => {
-          if (u?.username === undefined) {
+          if (u?.username == "") {
             this.toastr.error(this.translate.instant('toastrmessages.loginrequired'));
             return false;
           }

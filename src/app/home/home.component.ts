@@ -93,6 +93,7 @@ export class HomeComponent implements OnInit {
     console.log("inside add to cart")
 
     if(this.accountService.isLoggedIn()){
+      console.log("inside if condition")
 
       let productItem : Product;//= this.productService.getProductById(id);
       if(id!==""){

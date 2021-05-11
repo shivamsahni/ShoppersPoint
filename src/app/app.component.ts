@@ -22,7 +22,14 @@ export class AppComponent {
   }
 
   setCurrentUser(){
-    const user: any = {'username':localStorage.getItem('user')?.toString()};
+    const u:any = localStorage.getItem('user')?.toString();
+    let user: User ={'username': 'dummy'};
+    if(u===undefined){
+      user = {'username': ""};
+    }
+    else
+    { user = {'username': u};}
+    
     this.accountService.setCurrentUser(user);
   }
 
