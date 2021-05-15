@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Product } from 'src/app/_models/product';
 import { ProductserviceService } from 'src/app/_services/productservice.service';
 
 @Component({
@@ -20,12 +18,9 @@ export class ProductListComponent implements OnInit {
                                         (queryString: Params) =>{
                                 
                                           if(queryString['category']){
-
-                                            console.log(queryString['category']);
                                             this.productService.searchByCategory2(queryString['category']);
                                           }
                                           else if(queryString['name_like']){
-                                            console.log(queryString['name_like']);
                                             this.productService.search2(queryString['name_like']);
                                           }
                                           else{

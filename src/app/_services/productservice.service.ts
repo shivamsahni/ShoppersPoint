@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../_models/product';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductserviceService {
 
-  // private SERVER_URL = 'http://localhost:3000/api/';
-  private SERVER_URL = '/api/';
+  private SERVER_URL = environment.backendURL;
 
   constructor(private http: HttpClient) {}
 
@@ -35,25 +35,25 @@ export class ProductserviceService {
 
   search(q: string): Observable<Product[]> {
     return this.http.get<Product[]>(
-      this.SERVER_URL + 'products?name_like=' + q
+      this.SERVER_URL + '/products?name_like=' + q
     );
   }
 
   search2(q: string){
     this.Products$ =  this.http.get<Product[]>(
-      this.SERVER_URL + 'products?name_like=' + q
+      this.SERVER_URL + '/products?name_like=' + q
     );
   }  
 
   searchByCategory(category: string):Observable<Product[]>{
     return this.http.get<Product[]>(
-      this.SERVER_URL+'products?category_like=' + category
+      this.SERVER_URL+'/products?category_like=' + category
     )
   }
 
   searchByCategory2(category: string){
     this.Products$ =  this.http.get<Product[]>(
-      this.SERVER_URL+'products?category_like=' + category
+      this.SERVER_URL+'/products?category_like=' + category
     )
   }
 
@@ -67,12 +67,8 @@ export class ProductserviceService {
 
   getProductById(id: string){
     return this.http.get<Product>(
-      this.SERVER_URL + 'products/' + id
+      this.SERVER_URL + '/products/' + id
     )
   }
-
-
-
-
 
 }

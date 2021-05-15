@@ -2,6 +2,7 @@ import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { User } from '../_models/user';
 })
 export class AccountService {
 
-  baseUrl = "/api/";
+  baseUrl = environment.backendURL;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
@@ -17,7 +18,8 @@ export class AccountService {
 
   login(model: any){
     let url="";
-    url = "/api/users?username=";
+    url+=this.baseUrl;
+    url += "/users?username=";
     url+=model.username?.toLowerCase();
     url+="&password=";
     url+=model.password;

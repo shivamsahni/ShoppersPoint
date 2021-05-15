@@ -2,11 +2,11 @@
     "users": [
         {
             "username": "shivam",
-            "password": "shivam@123"
+            "password": "shivam"
         },
         {
             "username": "admin",
-            "password": "admin@123"
+            "password": "admin"
         }
     ],
     "products": [

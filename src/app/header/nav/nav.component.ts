@@ -400,11 +400,6 @@ export class NavComponent implements OnInit {
 
     searchIt() {
 
-        this.accountService.currentUser$.subscribe(u=>{
-            console.log(u.username);
-            console.log(typeof(u.username))
-        })
-
         if(this.searchProduct.length===0)
             this.router.navigateByUrl('/products');
         else

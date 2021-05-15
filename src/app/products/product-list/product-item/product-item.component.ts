@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
 import { CartItem } from 'src/app/_models/cartItem';
 import { Product } from 'src/app/_models/product';
@@ -28,8 +27,7 @@ export class ProductItemComponent implements OnInit {
   constructor(private cartService: CartService,
     private productService: ProductserviceService,
     private router: Router,
-    public accountService: AccountService,
-    private toastr: ToastrService
+    public accountService: AccountService
     ) { }
 
   ngOnInit(): void {
@@ -61,24 +59,6 @@ export class ProductItemComponent implements OnInit {
       this.cartService.addToCart(item); 
     }
   
-  }
-
-  filterByCategory(category: any){
-    this.productService.Products$ = this.productService.searchByCategory(category);
-
-    this.productService.updateSelectedProduct({
-        id: "",
-        name: "",
-        description: "",
-        price: 0,
-        imageURL: "",
-        quantity: 0,
-        category: ""
-    })
-
-    this.productService.isProductsEmpty$ = this.productService.Products$.pipe(
-        map((products) => (products.length==0?true:false))
-    );
   }
 
   goToProductDetailPage(id: string){

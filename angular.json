@@ -80,7 +80,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "ShoppersPoint:build:production"
+              "browserTarget": "ShoppersPoint:build:production",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendURL: 'https://my-json-server.typicode.com/shivamsahni/shopperspointfakebackend'
 };
