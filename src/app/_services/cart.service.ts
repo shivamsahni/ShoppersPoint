@@ -86,6 +86,7 @@ export class CartService {
 
   resetCart(){
     this.selectedCartItems.next([]);
+    this.selectedTotal.next(0);
   }
 
 
