@@ -1,27 +1,48 @@
 # ShoppersPoint
+## Authentication & Authorization
+### Authentication
+Login/Logout: Implemented login logout with only 2 users as authenticated Users:
+Username – shivam
+Password – shivam
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+Username – admin
+Password - admin 
+Also worked on persisting login, when session or browser is closed user will remain logged in until explicitly logged out of application.
+On logout cart will be cleared & User can’t add items to cart without logging in.
 
-## Development server
+### Authorization
+Used Authguard to make sure only logged in user can access cart & checkout pages & will receive notification to login first if not already logged in.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Backend
+Used Json-server as backend of angular application where data is served from db.json file present in “api” folder of application. It contains all Users & Products information used in application. Application stores cart items in memory and not in any backend or persistent storage.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Mobile Friendly
+This application is responsive and can be used easily via a mobile device.
 
-## Build
+## Internationalization
+Implemented Internationalization providing support for two languages:
+•	Hindi
+•	English
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Category Tree
+User can look for Products via following Categories:
+![image](https://user-images.githubusercontent.com/40798328/118410119-7e538e00-b6ab-11eb-8dcc-b33e720b6b2a.png)
 
-## Running unit tests
+## Run Locally
+Inside Shopperspoint Project type following commands:
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To Run application Locally:  
+npm run dev
 
-## Running end-to-end tests
+http://localhost:4200/
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Deployment
+Application is deployed on netlify with continuous integration with Github :  
 
-## Further help
+Application URL of Netlify:  
+https://unruffled-kepler-5540ec.netlify.app
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
