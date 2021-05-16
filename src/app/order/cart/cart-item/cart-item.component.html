@@ -14,8 +14,8 @@
           <div>
             <div class="def-number-input number-input safari_only mb-0 w-100">
                 <ng-container *ngIf="cartItem!==undefined">
-                    <p-inputNumber id="minmax-buttons" (onBlur)='updateQuantity()' [(ngModel)]="cartItem!.quantity" [min]="1" [max]="10"></p-inputNumber><br>
-                    <small id="minmax-buttons-help">{{'cartpage.quantitylimit' | translate}}</small>
+                    <p-inputNumber [(ngModel)]="cartItem!.quantity" [min]="1" [max]="100" (onInput)='updateQuantity()' [showButtons]="true"  ></p-inputNumber>
+                    <!-- <small id="minmax-buttons-help">{{'cartpage.quantitylimit' | translate}}</small> -->
                 </ng-container>             
             </div>
           </div>
