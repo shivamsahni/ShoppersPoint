@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './home/notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
@@ -24,4 +25,11 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+
+  constructor(public translate: TranslateService) {
+    
+  }
+
+ }

@@ -277,7 +277,7 @@ export class NavComponent implements OnInit {
                                             ]
                                         },
                                         {
-                                            label: 'general',
+                                            label: translate.translations.header['general'],
                                             icon: 'pi pi-fw pi-shield',
                                             items: [
                                                 {

@@ -14,9 +14,10 @@ img {
     display:block;
     margin-left:auto;
     margin-right: auto;
-    cursor: pointer;  
+    z-index: -200; 
 }
 
 #add2cart{
     margin-left: 4px;
 }
+
