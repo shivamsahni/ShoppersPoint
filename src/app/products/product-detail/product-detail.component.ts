@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CartItem } from 'src/app/_models/cartItem';
 import { Product } from 'src/app/_models/product';
 import { AccountService } from 'src/app/_services/account.service';
@@ -28,7 +28,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private productService: ProductserviceService,
     public accountService: AccountService,
-    private cartService: CartService) {
+    private cartService: CartService,
+    private router : Router) {
 
       this.route.params.subscribe(
         (queryString: Params) =>{
@@ -78,7 +79,9 @@ export class ProductDetailComponent implements OnInit {
         item.calculatedPrice = item.quantity*item.price;
       }
 
-      this.cartService.addToCart(item); 
+      this.cartService.addToCart(item);
+      this.router.navigateByUrl('/cart');
+
     }
   }
 
