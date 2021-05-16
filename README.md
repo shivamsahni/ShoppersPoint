@@ -1,4 +1,11 @@
 # ShoppersPoint
+ShoppersPoint is a E-Cart Front-end Application developed in angular which provides following functionalities:
+- Login functionality(all Users can Access)
+- View Product, Search Product & Product Details Page(all Users can Access)
+- Cart & Checkout Functionality(only Logged in User can Access)
+- Category Tree to look products via Categories(all Users can Access)
+- Internationalization Support for 2 Languages.
+
 ## Authentication & Authorization
 ### Authentication
 Login/Logout: Implemented login logout with only 2 users as authenticated Users:
