@@ -1,27 +1,55 @@
 # ShoppersPoint
+ShoppersPoint is a E-Cart Front-end Application developed in angular which provides following functionalities:
+- Login functionality(all Users can Access)
+- View Product, Search Product & Product Details Page(all Users can Access)
+- Cart & Checkout Functionality(only Logged in User can Access)
+- Category Tree to look products via Categories(all Users can Access)
+- Internationalization Support for 2 Languages.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+## Authentication & Authorization
+### Authentication
+Login/Logout: Implemented login logout with only 2 users as authenticated Users:
+Username – shivam
+Password – shivam
 
-## Development server
+Username – admin
+Password - admin 
+Also worked on persisting login, when session or browser is closed user will remain logged in until explicitly logged out of application.
+On logout cart will be cleared & User can’t add items to cart without logging in.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Authorization
+Used Authguard to make sure only logged in user can access cart & checkout pages & will receive notification to login first if not already logged in.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Backend
+Used Json-server as backend of angular application where data is served from db.json file present in “api” folder of application. It contains all Users & Products information used in application. Application stores cart items in memory and not in any backend or persistent storage.
 
-## Build
+## Mobile Friendly
+This application is responsive and can be used easily via a mobile device.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Internationalization
+Implemented Internationalization providing support for two languages:
+•	Hindi
+•	English
 
-## Running unit tests
+## Category Tree
+User can look for Products via following Categories:
+![image](https://user-images.githubusercontent.com/40798328/118410119-7e538e00-b6ab-11eb-8dcc-b33e720b6b2a.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run Locally
+Inside Shopperspoint Project type following commands:
+npm install
 
-## Running end-to-end tests
+To Run application Locally:  
+npm run dev
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+http://localhost:4200/
 
-## Further help
+## Deployment
+Application is deployed on netlify with continuous integration with Github :  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Application URL of Netlify:  
+https://unruffled-kepler-5540ec.netlify.app
+
+
+
