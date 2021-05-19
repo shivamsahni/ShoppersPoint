@@ -55,7 +55,7 @@ describe('AccountService', () => {
 })
 
 
-  xit('should set the current user', ()=>{
+  it('should set the current user', ()=>{
     let inputUser: User = {
       username: "admin"
     };
@@ -65,6 +65,35 @@ describe('AccountService', () => {
     account.currentUser$.subscribe(u =>{
       expect(u).toEqual(inputUser);
     })
+
+  })
+
+  it('should remove the current user and set username to empty string', ()=>{
+
+    account.logout();
+
+    account.currentUser$.subscribe(u=>{
+      expect(u.username).toEqual("");
+    })
+  })
+
+  it('should check whether a user is logged in', ()=>{
+
+    let notLoggedInUser: User = {
+      username: ""
+    }
+
+    account.setCurrentUser(notLoggedInUser);
+
+    expect(account.isLoggedIn()).toEqual(false);
+
+    let inputUser: User = {
+      username: "admin"
+    };
+
+    account.setCurrentUser(inputUser);
+
+    expect(account.isLoggedIn()).toEqual(true);
 
   })
 
